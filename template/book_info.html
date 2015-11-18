@@ -1,0 +1,18 @@
+<p>你查找的书籍:<p>
+{%if book_need%}
+	<p>{{book_need.Title}}.<p>
+	<ul>
+		<p>ISBN:{{book_need.ISBN}}<p>
+		<p>AuthorID:{{book_need.AuthorID}}<p>
+		<p>Publisher:{{book_need.Publisher}}<p>
+		<p>PublishDate:{{book_need.PublishDate}}<p>
+		<p>Publisher:{{book_need.Publisher}}<p>
+		<p>Price:{{book_need.Price}}<p>
+		<form action="/restore/" method="get">
+        		<input type="hidden" name="book_id" type="text" value={{book_need.id}}>
+			<button class="btn btn-large btn-primary" type="submit">更新</button>
+      		</form>
+	<ul>
+{%else%}
+	<p>您查找的书籍不存在<p>
+{%endif%}

@@ -1,0 +1,11 @@
+<p>你查找的书籍有:<p>
+{%if books%}
+	<p>found {{books|length}} book {{books|pluralize}}.<p>
+	<ul>
+		{%for book in books%}
+		<li>{{book.Title}}<li>
+		{%endfor%}
+	<ul>
+{%else%}
+	<p> no books matched your search<p>
+{%endif%}

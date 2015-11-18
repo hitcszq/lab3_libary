@@ -1,0 +1,19 @@
+
+<p>the book you look for:<p>
+{%if books%}
+	<p>found {{books|length}} book {{books|pluralize}}.<p>
+	<ul>
+		{%for book in books%}		<form action="/search_info/" method="get">
+        		<p>{{book.Title}}<p>
+        		<input type="hidden" name="book_id" type="text" value={{book.id}}>
+			<button class="btn btn-large btn-primary" type="submit">find details</button>
+      		</form>
+		<form action="/delete/" method="get">
+        		<input type="hidden" name="book_id" type="text" value={{book.id}}>
+			<button class="btn btn-large btn-primary" type="submit">delete</button>
+      		</form>
+		{%endfor%}
+	<ul>
+{%else%}
+	<p> no books matched your search<p>
+{%endif%}
